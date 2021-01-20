@@ -15,13 +15,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  console.log(req.query.location)
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.location}&APPID=${API_KEY}`)
   .then(response => {
-    console.log(response.data.weather[0])
-    res.redirect('/');
+    console.log(response.data.weather[0]);
+    let describeWeather = response.data.weather[0].main;
+    let tempFahr = Math.round(response.data.main.temp * (9 / 5) - 459.67);
+    let feelsLikeFahr = Math.round(response.data.main.feels_like * (9 / 5) - 459.67);
+    res.render('results', {
+      description: describeWeather,
+      tempFahr: tempFahr,
+      feelsLikeFahr: feelsLikeFahr
+    });
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
 })
 
 app.listen(PORT, () => console.log(`server running on ${PORT}`)); 
