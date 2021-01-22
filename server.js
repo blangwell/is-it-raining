@@ -1,12 +1,13 @@
 require('dotenv').config();
-const API_KEY = process.env.API_KEY
+const API_KEY = process.env.API_KEY;
 const PORT = process.env.PORT;
 const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const express = require('express');
-
+const path = require('path');
 const app = express();
 
+app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 
