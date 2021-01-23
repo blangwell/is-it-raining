@@ -23,8 +23,10 @@ app.get('/search', (req, res) => {
     let tempFahr = Math.round(response.data.main.temp * (9 / 5) - 459.67);
     let feelsLikeFahr = Math.round(response.data.main.feels_like * (9 / 5) - 459.67);
     let yesOrNo;
-    if (describeWeather === 'Rain') yesOrNo = true;
-    else yesOrNo = false;
+
+    if (describeWeather === 'Rain') yesOrNo = 'yes, it\'s raining';
+    else yesOrNo = 'no it isn\'t';
+
     res.render('results', {
       description: describeWeather,
       tempFahr: tempFahr,
