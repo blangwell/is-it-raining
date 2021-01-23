@@ -5,38 +5,41 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-.search-form {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-body h1 {
+h1 {
   color: coral;
 }
 
 form {
-  width: 50%;
   text-align: center;
-  display: block;
 }
 
+.flex-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.flex-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 #text-input {
+  height: 1.5rem;
   font-weight: 300;
-  border-radius: 10px;
+  border-radius: 8px;
+  text-align: center;
 }
 
 #search-submit {
   margin: 1rem;
+}
+
+#temperature, #feels-like{
+  color: white;
 }

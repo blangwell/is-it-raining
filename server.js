@@ -16,16 +16,21 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.location}&APPID=${API_KEY}`)
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${req.query.location}&APPID=${API_KEY}`)
   .then(response => {
     console.log(response.data.weather[0]);
     let describeWeather = response.data.weather[0].main;
     let tempFahr = Math.round(response.data.main.temp * (9 / 5) - 459.67);
     let feelsLikeFahr = Math.round(response.data.main.feels_like * (9 / 5) - 459.67);
+    let yesOrNo;
+    if (describeWeather === 'Rain') yesOrNo = true;
+    else yesOrNo = false;
     res.render('results', {
       description: describeWeather,
       tempFahr: tempFahr,
-      feelsLikeFahr: feelsLikeFahr
+      feelsLikeFahr: feelsLikeFahr,
+      search: req.query.location,
+      yesOrNo: yesOrNo
     });
   })
   .catch(err => console.log(err));
