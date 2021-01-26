@@ -38,8 +38,20 @@ form {
 
 #search-submit {
   margin: 1rem;
+  border-radius: 5px;
 }
 
 #temperature, #feels-like{
   color: white;
+}
+
+.flash-message {
+  color: coral;
+  width: 90vw;
+  /* display: inline-block; */
+  position: absolute;
+  margin: auto auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }

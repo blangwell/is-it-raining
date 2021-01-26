@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>is it raining?</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Raleway']
+            }
+        });
+        </script> 
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <%- include('./include/alerts') %>
         <%- body %> 
 </body>
 </html>
